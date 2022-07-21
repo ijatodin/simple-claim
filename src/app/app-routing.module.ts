@@ -5,8 +5,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClaimComponent } from './claim/claim.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'claim', component: ClaimComponent }
+  { path: '', component: DashboardComponent }, // redirect to dashboard directly
+  { path: 'claim', component: ClaimComponent } // claim for approval
 ]
 
 @NgModule({
