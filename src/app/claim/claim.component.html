@@ -1,1 +1,68 @@
-<p>claim works!</p>
+<div class="card">
+  <div class="card-header">
+    <div class="d-md-flex">
+      <h4 class="card-title my-1 ml-2">Submit Claim for Approval</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row g-3">
+      <div class="col-md-12">
+        <label for="name" class="form-label"><span class="text-danger">*</span> Employee Name</label>
+        <input type="text" class="form-control {{ nameValidation }}" id="name" [(ngModel)]="formData.name">
+        <div class="invalid-feedback">
+          Please provide a valid name.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="department" class="form-label"><span class="text-danger">*</span> Department</label>
+        <select class="form-select {{ deptValidation }}" id="department" [(ngModel)]="formData.department">
+          <option selected disabled value="">Choose Department</option>
+          <option value="1">HR</option>
+          <option value="2">Finance</option>
+          <option value="3">IT</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a department.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="category" class="form-label"><span class="text-danger">*</span> Category</label>
+        <select class="form-select {{ catValidation }}" id="category" [(ngModel)]="formData.category">
+          <option selected disabled value="">Choose Category</option>
+          <option value="1">Petrol Claim</option>
+          <option value="2">Meal Claim</option>
+          <option value="3">Office Expenses Claim</option>
+          <option value="4">Others (Please justify in description)</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a category.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="value" class="form-label"><span class="text-danger">*</span> Value</label>
+        <div class="input-group">
+          <span class="input-group-text">RM</span>
+          <input type="number" class="form-control {{ valueValidation }}" [(ngModel)]="formData.value">
+          <div class="invalid-feedback">
+            Please provide a valid value.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="attachment" class="form-label"><span class="text-danger">*</span> Attachment</label>
+        <input type="file" class="form-control {{ fileValidation }}" id="attachment" accept="image/jpeg,image/gif,image/png,application/pdf"
+          (change)="attachmentHandler($event)">
+          <div class="invalid-feedback">
+            Please provide attachment for the claim.
+          </div>
+      </div>
+      <div class="col-md-6">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="2" [(ngModel)]="formData.description"></textarea>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" (click)="submitForm()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
